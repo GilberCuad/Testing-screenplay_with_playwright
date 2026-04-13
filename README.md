@@ -1,6 +1,6 @@
-# Diggi Pymes Automation
+# . Automation
 
-Automated testing project created to test new features and ensure the quality of the Diggi Pymes product using Behavior-Driven Development (BDD) approach with Cucumber and the Screenplay Pattern.
+Automated testing project created to test new features and ensure the quality. product using Behavior-Driven Development (BDD) approach with Cucumber and the Screenplay Pattern.
 
 ## Implemented Technologies
 
@@ -68,14 +68,6 @@ The **only requirement** is to have **Docker Desktop installed**. No additional 
 - Sets up the services using Docker Compose.
 - Enters the container to execute tests using Cucumber commands.
 
-### Stopping the Container
-
-To stop the container manually, run:
-
-```sh
-docker stop playwright-diggi-pymes
-```
-
 ---
 
 ## 2. Running Tests Locally
@@ -116,6 +108,7 @@ All test cases follow a standardized naming convention:
 ```
 
 **Examples:**
+
 - `@TC-AUTH-LOGIN-01` - Authentication module, Login screen, Test #01
 - `@TC-DE-DEBIT-NOTE-02` - Electronic Documents, Debit Note, Test #02
 
@@ -134,6 +127,7 @@ Tags are labels added to scenarios in `.feature` files to categorize and filter 
 ```
 
 **Example:**
+
 ```gherkin
 @smoke @regression
 @TC-AUTH-LOGIN-01
@@ -144,6 +138,7 @@ Scenario: User logs in successfully
 ```
 
 **Tag Categories:**
+
 - `@smoke` - Critical tests for quick validation (5-15 min)
 - `@regression` - Complete test suite before releases (1-3 hours)
 - `@TC-[MODULE]-[SCREEN]-[NUMBER]` - Unique test case identifier
@@ -155,21 +150,25 @@ Scenario: User logs in successfully
 You can run specific tests using tags:
 
 ### Run tests by module
+
 ```sh
 npx cucumber-js --tags "@TC-AUTH"
 ```
 
 ### Run tests by specific screen
+
 ```sh
 npx cucumber-js --tags "@TC-AUTH-LOGIN"
 ```
 
 ### Run a single test case
+
 ```sh
 npx cucumber-js --tags "@TC-AUTH-LOGIN-01"
 ```
 
 ### Combine multiple tags
+
 ```sh
 # Run smoke tests from authentication module
 npx cucumber-js --tags "@smoke and @TC-AUTH"
@@ -207,6 +206,7 @@ npm run open-report
 ```
 
 This command opens the Serenity HTML report located at:
+
 ```
 target/site/serenity/index.html
 ```
@@ -275,7 +275,7 @@ playwright-screenplay-project/
 │   │       ├── string-helper.ts
 │   │       └── data-reader-helper.ts
 ├── tests/                                   # Test files
-│   ├── login-diggipymes/                    # Module: Login Diggi Pymes
+│   ├── login/                    # Module: Login .
 │   │   ├── features/
 │   │   │   └── login.feature
 │   │   └── steps-definitions/
@@ -295,7 +295,7 @@ playwright-screenplay-project/
 │   └── support/                             # Cucumber configuration
 │       ├── hooks.ts
 │       └── world.ts
-│ 
+│
 ├── test-data/                              # Test data files
 │   ├── authentication/
 │       ├── valid-users.json
@@ -323,7 +323,9 @@ playwright-screenplay-project/
 ## Key Directories Explanation
 
 ### 📁 **`src/screenplay/`**
+
 Contains the implementation of the Screenplay Pattern:
+
 - **abilities/**: Define what actors can do
 - **tasks/**: High-level business workflows
 - **interactions/**: Low-level UI actions
@@ -332,14 +334,18 @@ Contains the implementation of the Screenplay Pattern:
 - **interfaces/**: TypeScript type definitions
 
 ### 📁 **`tests/`**
+
 Contains executable test files:
+
 - **features/**: Gherkin scenarios (`.feature` files)
 - **step-definitions/**: TypeScript implementations of steps
 
 ### 📁 **`test-data/`**
+
 Contains test data in JSON format, organized by modules.
 
 ### 📁 **`scripts/`**
+
 Contains utility bash scripts for automation tasks.
 
 ---
