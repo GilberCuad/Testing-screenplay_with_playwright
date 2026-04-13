@@ -1,0 +1,23 @@
+# Cucumber profile configuration
+# View: https://github.com/cucumber/cucumber-js/blob/main/docs/profiles.md
+
+default:
+  requireModule:
+    - ts-node/register   # In-memory TypeScript transpiler
+
+  paths:
+    - 'tests/**/features/**/*.feature'
+  format:
+
+    - '@serenity-js/cucumber'             # Serenity/JS adapter for Cucumber
+  
+  formatOptions:
+    specDirectory: './tests'     # Directory where the .feature files are located
+  
+  require:
+    - tests/support/*.ts          # Upload configuration files and hooks
+    - tests/**/steps-definitions/*.steps.ts  # Upload steps definitions
+    - tests/common/*.ts
+  
+  publishQuiet: true
+
